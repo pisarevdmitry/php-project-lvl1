@@ -5,18 +5,17 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function startGame(): void
+function startGame(string $gameText, callable $genQuestion): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     $round = 0;
     $maxRounds = 3;
+    line($gameText);
     while ($round < $maxRounds) {
-        $number = rand(0, 100);
-        $correctAnswer = $number % 2 === 0 ? 'yes' : 'no';
-        line('Answer "yes" if the number is even, otherwise answer "no".');
-        line("Question: {$number}");
+        ['question' => $question, 'correctAnswer' => $correctAnswer] = $genQuestion();
+        line("Question: {$question}");
         $answer = prompt('Your answer');
         if ($correctAnswer !== strtolower($answer)) {
             line("'{$answer}'is wrong answer ;(. Correct answer was '{$correctAnswer}'.'");
