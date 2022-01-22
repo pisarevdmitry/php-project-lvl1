@@ -2,21 +2,26 @@
 
 namespace Brain\Games\Games\Gcd;
 
+function findGcd($number1, $number2)
+{
+    $max = $number1 > $number2 ? $number1 : $number2;
+    $min = $number1 > $number2 ? $number2 : $number1;
+    $remainder = $max % $min;
+    if ($remainder === 0) {
+        return $min;
+    }
+    return findGcd($min, $remainder);
+}
+
 function gcd(): callable
 {
     return function (): array {
-        $firstNumber = rand(0, 100);
-        $secondNumber = rand(0, 100);
+        $firstNumber = rand(1, 100);
+        $secondNumber = rand(1, 100);
         $question = "{$firstNumber} {$secondNumber}";
         $number1 = $firstNumber;
         $number2 = $secondNumber;
-        do {
-            $max = $number1 > $number2 ? $number1 : $number2;
-            $min = $number1 > $number2 ? $number2 : $number1;
-            $remainder = $max % $min;
-            $number1 = $min;
-            $number2 = $remainder;
-        } while ($remainder !== 0);
-        return ['question' => $question, 'correctAnswer' => (string)$min];
+        $correctAnswer = findGcd($number1, $number2);
+        return ['question' => $question, 'correctAnswer' => (string)$correctAnswer];
     };
 }

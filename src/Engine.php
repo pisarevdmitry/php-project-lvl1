@@ -18,7 +18,7 @@ function startGame(string $gameText, callable $genQuestion): void
         line("Question: {$question}");
         $answer = prompt('Your answer');
         if ($correctAnswer !== strtolower($answer)) {
-            line("'{$answer}'is wrong answer ;(. Correct answer was '{$correctAnswer}'.'");
+            line("'{$answer}'is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
             line("Let's try again, {$name}!");
             return;
         }
