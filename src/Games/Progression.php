@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Games\Progression;
 
-function makeProgression($start, $len, $step)
+function makeProgression(int $start, int $len, int $step)
 {
     $result = [];
     $currentNum = $start;
@@ -12,7 +12,7 @@ function makeProgression($start, $len, $step)
     return $result;
 }
 
-function progression(): callable
+function createGameData(): callable
 {
     return function (): array {
         $len = 10;

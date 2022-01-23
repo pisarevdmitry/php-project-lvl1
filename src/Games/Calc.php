@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Games\Calc;
 
-function calc(): callable
+function createGameData(): callable
 {
     return function () {
         $mapping = [

@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Games\Even;
 
-function brainEven(): callable
+function createGameData(): callable
 {
     return function (): array {
         $number = rand(0, 100);

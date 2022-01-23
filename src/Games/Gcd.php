@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Games\Gcd;
 
-function findGcd($number1, $number2)
+function findGcd(int $number1, int $number2)
 {
     $max = $number1 > $number2 ? $number1 : $number2;
     $min = $number1 > $number2 ? $number2 : $number1;
@@ -13,7 +13,7 @@ function findGcd($number1, $number2)
     return findGcd($min, $remainder);
 }
 
-function gcd(): callable
+function createGameData(): callable
 {
     return function (): array {
         $firstNumber = rand(1, 100);

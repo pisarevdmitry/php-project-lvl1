@@ -3,7 +3,7 @@
 <?php
 
 use function Brain\Games\Engine\startGame;
-use function Brain\Games\Games\Progression\progression;
+use function Brain\Games\Games\Progression\createGameData;
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
@@ -14,6 +14,5 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-$genQuestion = progression();
-$gameText = 'Find the greatest common divisor of given numbers.';
-startGame($gameText, $genQuestion);
+$gameText = 'What number is missing in the progression?';
+startGame($gameText, createGameData());

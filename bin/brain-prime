@@ -3,7 +3,7 @@
 <?php
 
 use function Brain\Games\Engine\startGame;
-use function Brain\Games\Games\Calc\createGameData;
+use function Brain\Games\Games\Prime\createGameData;
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
@@ -14,5 +14,5 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-$gameText = 'What is the result of the expression?';
+$gameText = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 startGame($gameText, createGameData());
