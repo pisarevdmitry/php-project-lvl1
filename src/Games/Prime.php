@@ -15,7 +15,7 @@ function isPrime(int $number): bool
 function createGameData(): callable
 {
     return function (): array {
-        $question = rand(0, 100);
+        $question = rand(2, 100);
         $answer = isPrime($question) ? 'yes' : 'no';
         return ['question' => $question, 'correctAnswer' => $answer];
     };
